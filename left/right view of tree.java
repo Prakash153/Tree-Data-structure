@@ -1,5 +1,5 @@
 code: 
-
+// left view
 class Tree
 {
    public void leftSideNode(Node root, ArrayList<Integer> list ,int level){
@@ -23,3 +23,22 @@ class Tree
    }
 }
 
+// right view
+
+code: 
+class Solution {
+    public void rightMostNode(TreeNode root, int level , ArrayList<Integer> list){
+        if(root == null)
+            return ;
+        if(level == list.size())
+            list.add(root.val);
+        rightMostNode(root.right,level+1,list);
+        rightMostNode(root.left,level+1,list);
+        return;
+    }
+    public List<Integer> rightSideView(TreeNode root) {
+        ArrayList<Integer> list = new ArrayList<>();
+        rightMostNode(root,0,list);
+        return list;
+    }
+}
