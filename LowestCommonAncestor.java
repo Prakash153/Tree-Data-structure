@@ -38,16 +38,16 @@ Assumption :
 class solution {
 public Node LCA(Node root, int n1 , int n2){
 if(root == null) return null;
-if(root.data == n1 || root.data == n2 ) return root;
-Node lca1 = LCA(root.left,n1,n2);
+if(root.data == n1 || root.data == n2 ) return root;   // if eiether of them is found 
+Node lca1 = LCA(root.left,n1,n2);                       
 Node lca2 = LCA(root.right,n1,n2);
 
-if(lca1 != null && lca2 != null)
+if(lca1 != null && lca2 != null)               // if n1 is on one side and n2 is on other 
 return root;
 
-if(lca1 != null)
+if(lca1 != null)                               // if n1 and n2 are on left side 
 return lca1; 
 else
-return lca2;
+return lca2;                                  // if n1 and n2 are on right side or they are absent
 }
 }
